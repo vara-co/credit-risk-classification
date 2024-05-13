@@ -1,125 +1,66 @@
 # credit-risk-classification
 DU - DA Module 20 challenge
-The nonprofit foundation Alphabet Soup wants a tool that can help it select the applicants for funding with the best chance of success in their ventures. With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
+Background
+In this Challenge, you’ll use various techniques to train and evaluate a model based on loan risk. You’ll use a dataset of historical lending activity from a peer-to-peer lending services company to build a model that can identify the creditworthiness of borrowers.
 
-From Alphabet Soup’s business team, you have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as:
-
-EIN and NAME—Identification columns
-APPLICATION_TYPE—Alphabet Soup application type
-AFFILIATION—Affiliated sector of industry
-CLASSIFICATION—Government organization classification
-USE_CASE—Use case for funding
-ORGANIZATION—Organization type
-STATUS—Active status
-INCOME_AMT—Income classification
-SPECIAL_CONSIDERATIONS—Special considerations for application
-ASK_AMT—Funding amount requested
-IS_SUCCESSFUL—Was the money used effectively
 Before You Begin
-IMPORTANT
-The instructions below are now updated to use Google Colab for this assignment instead of Jupyter Notebook. If you have already started this assignment using a Jupyter Notebook then you can continue to use Jupyter instead of Google Colab.
-
-Create a new repository for this project called deep-learning-challenge. Do not add this Challenge to an existing repository.
+Create a new repository for this project called credit-risk-classification. Do not add this homework to an existing repository.
 
 Clone the new repository to your computer.
 
-Inside your local git repository, create a directory for the Deep Learning Challenge.
+Inside your credit-risk-classification repository, create a folder titled "Credit_Risk."
 
-Push the above changes to GitHub.
+Inside the "Credit_Risk" folder, add the credit_risk_classification.ipynb and lending_data.csv files found in the "Starter_Code.zip" file.
+
+Push your changes to GitHub.
 
 Files
 Download the following files to help you get started:
 
-Module 21 Challenge filesLinks to an external site.
-
+Module 20 Challenge filesLinks to an external site.
 Instructions
-Step 1: Preprocess the Data
-Using your knowledge of Pandas and scikit-learn’s StandardScaler(), you’ll need to preprocess the dataset. This step prepares you for Step 2, where you'll compile, train, and evaluate the neural network model.
+The instructions for this Challenge are divided into the following subsections:
 
-Start by uploading the starter file to Google Colab, then using the information we provided in the Challenge files, follow the instructions to complete the preprocessing steps.
+Split the Data into Training and Testing Sets
 
-Read in the charity_data.csv to a Pandas DataFrame, and be sure to identify the following in your dataset:
-What variable(s) are the target(s) for your model?
-What variable(s) are the feature(s) for your model?
-Drop the EIN and NAME columns.
+Create a Logistic Regression Model with the Original Data
 
-Determine the number of unique values for each column.
+Write a Credit Risk Analysis Report
 
-For columns that have more than 10 unique values, determine the number of data points for each unique value.
+Split the Data into Training and Testing Sets
+Open the starter code notebook and use it to complete the following steps:
 
-Use the number of data points for each unique value to pick a cutoff point to combine "rare" categorical variables together in a new value, Other, and then check if the replacement was successful.
+Read the lending_data.csv data from the Resources folder into a Pandas DataFrame.
 
-Use pd.get_dummies() to encode categorical variables.
+Create the labels set (y) from the “loan_status” column, and then create the features (X) DataFrame from the remaining columns.
 
-Split the preprocessed data into a features array, X, and a target array, y. Use these arrays and the train_test_split function to split the data into training and testing datasets.
+NOTE
+A value of 0 in the “loan_status” column means that the loan is healthy. A value of 1 means that the loan has a high risk of defaulting.
 
-Scale the training and testing features datasets by creating a StandardScaler instance, fitting it to the training data, then using the transform function.
+Split the data into training and testing datasets by using train_test_split.
 
-Step 2: Compile, Train, and Evaluate the Model
-Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup-funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
+Create a Logistic Regression Model with the Original Data
+Use your knowledge of logistic regression to complete the following steps:
 
-Continue using the file in Google Colab in which you performed the preprocessing steps from Step 1.
+Fit a logistic regression model by using the training data (X_train and y_train).
 
-Create a neural network model by assigning the number of input features and nodes for each layer using TensorFlow and Keras.
+Save the predictions for the testing data labels by using the testing feature data (X_test) and the fitted model.
 
-Create the first hidden layer and choose an appropriate activation function.
+Evaluate the model’s performance by doing the following:
 
-If necessary, add a second hidden layer with an appropriate activation function.
+Generate a confusion matrix.
 
-Create an output layer with an appropriate activation function.
+Print the classification report.
 
-Check the structure of the model.
+Answer the following question: How well does the logistic regression model predict both the 0 (healthy loan) and 1 (high-risk loan) labels?
 
-Compile and train the model.
+Write a Credit Risk Analysis Report
+Write a brief report that includes a summary and analysis of the performance of the machine learning models that you used in this homework. You should write this report as the README.md file included in your GitHub repository.
 
-Create a callback that saves the model's weights every five epochs.
+Structure your report by using the report template that Starter_Code.zip includes, ensuring that it contains the following:
 
-Evaluate the model using the test data to determine the loss and accuracy.
+An overview of the analysis: Explain the purpose of this analysis.
 
-Save and export your results to an HDF5 file. Name the file AlphabetSoupCharity.h5.
+The results: Using a bulleted list, describe the accuracy score, the precision score, and recall score of the machine learning model.
 
-Step 3: Optimize the Model
-Using your knowledge of TensorFlow, optimize your model to achieve a target predictive accuracy higher than 75%.
-
-Use any or all of the following methods to optimize your model:
-
-Adjust the input data to ensure that no variables or outliers are causing confusion in the model, such as:
-Dropping more or fewer columns.
-Creating more bins for rare occurrences in columns.
-Increasing or decreasing the number of values for each bin.
-Add more neurons to a hidden layer.
-Add more hidden layers.
-Use different activation functions for the hidden layers.
-Add or reduce the number of epochs to the training regimen.
-Note: If you make at least three attempts at optimizing your model, you will not lose points if your model does not achieve target performance.
-
-Create a new Google Colab file and name it AlphabetSoupCharity_Optimization.ipynb.
-
-Import your dependencies and read in the charity_data.csv to a Pandas DataFrame.
-
-Preprocess the dataset as you did in Step 1. Be sure to adjust for any modifications that came out of optimizing the model.
-
-Design a neural network model, and be sure to adjust for modifications that will optimize the model to achieve higher than 75% accuracy.
-
-Save and export your results to an HDF5 file. Name the file AlphabetSoupCharity_Optimization.h5.
-
-Step 4: Write a Report on the Neural Network Model
-For this part of the assignment, you’ll write a report on the performance of the deep learning model you created for Alphabet Soup.
-
-The report should contain the following:
-
-Overview of the analysis: Explain the purpose of this analysis.
-
-Results: Using bulleted lists and images to support your answers, address the following questions:
-
-Data Preprocessing
-
-What variable(s) are the target(s) for your model?
-What variable(s) are the features for your model?
-What variable(s) should be removed from the input data because they are neither targets nor features?
-Compiling, Training, and Evaluating the Model
-
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Were you able to achieve the target model performance?
-What steps did you take in your attempts to increase model performance?
-Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+A summary: Summarize the results from the machine learning model. Include your justification for recommending the model for use by the company. If you don’t recommend the model, justify your reasoning.
