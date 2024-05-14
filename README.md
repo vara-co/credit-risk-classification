@@ -8,6 +8,9 @@ Module 20 Challenge
 <br/>
 By Laura Vara</h2><br/>
 
+![ReadmeImageTXT](https://github.com/vara-co/credit-risk-classification/assets/152572519/6ded1a3f-1bdb-4fc4-9879-c8ff8e56bc6d)
+
+
 ## Overview of the Analysis
 The purpose of this analysis was to build a machine learning model to predict the likelihood of loan default based on financial information. The dataset contains various financial attributes of borrowers, such as loan size, interest rate, borrower income, debt-to-income ratio, number of accounts, and derogatory marks. The target variable, "loan_status," indicates whether a loan is healthy (0) or high-risk (1).
 
